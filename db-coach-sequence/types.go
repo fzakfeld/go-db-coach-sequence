@@ -21,6 +21,7 @@ type CoachSequenceResponseIsFormation struct {
 
 type CoachSequenceResponseVehicleGroup struct {
 	Vehicles []CoachSequenceResponseVehicle `json:"allFahrzeug"`
+	Name     string                         `json:"fahrzeuggruppebezeichnung"`
 }
 
 type CoachSequenceResponseVehicle struct {
@@ -47,12 +48,19 @@ type DbCoachSequenceClient struct {
 
 // Friendly structure for general use
 type CoachSequence struct {
+	Trains []Train `json:"trains"`
+}
+
+type Train struct {
 	Coaches []Coach `json:"coaches"`
+	Class   string  `json:"class"`
+	Livery  string  `json:"livery"`
 }
 
 type Coach struct {
-	VehicleNumber            string `json:"vehicle_number"`
 	CoachNumber              string `json:"coach_number"`
+	CoachType                string `json:"coach_type"`
+	CoachSequenceNumber      string `json:"coach_sequence_number"`
 	HasAc                    bool   `json:"has_ac"`
 	HasBahnBonusSeats        bool   `json:"has_bahn_bonus_seats"`
 	HasAccessibleSeats       bool   `json:"has_accessible_seats"`
@@ -62,5 +70,6 @@ type Coach struct {
 	HasQuietArea             bool   `json:"has_quiet_area"`
 	HasBikeSpace             bool   `json:"has_bike_space"`
 	HasInfo                  bool   `json:"has_info"`
+	HasRestaurant            bool   `json:"has_restaurant"`
 	TravelClass              int    `json:"travel_class"`
 }

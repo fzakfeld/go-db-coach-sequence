@@ -9,7 +9,7 @@ import (
 func main() {
 	coachSequenceClient := dbcoachsequence.NewDbCoachSequenceClient()
 
-	coachSequence, err := coachSequenceClient.GetSequence("205", "202407112259")
+	coachSequence, err := coachSequenceClient.GetSequence("373", "202407121800")
 
 	if err != nil {
 		panic(err)
